@@ -31,16 +31,32 @@
             <input id="add-sport" type="submit" value="Add a Sport!">
         </form>
 
+<div id="sports-view"></div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script type="text/javascript">
-        
             var sports = ["softball", "basketball", "football", "weightlifting"];
 
-            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" + sports +
-                "&limit=10&offset=0&rating=G&lang=en";
+            function displayGifs() {
+                var sport = $(this).attr("data-name");
+                
+                var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" +
+                    sports +
+                    "&limit=10&offset=0&rating=G&lang=en";
 
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+
+                    
+                   var img = $("<img src=" + response.data + ">");
+
+                    $("#sports-view").append(img)
+                });
+            }
 
             // Function for displaying sport data
             function renderButtons() {
@@ -50,9 +66,17 @@
                 $("#buttons-view").empty()
                 // Loop through the array of sports, then generate buttons for each sport in the array
                 for (var i = 0; i < sports.length; i++) {
-                    $("#buttons-view").append("<button type='button'>" + sports[i] + "</button>")
+                    var a = $("<button>");
+                    // Adds a class of movie to our button
+                    a.addClass("sport");
+                    // Added a data-attribute
+                    a.attr("data-name", sports[i]);
+                    // Provided the initial button text
+                    a.text(sports[i]);
+                    // Added the button to the buttons-view div
+                    $("#buttons-view").append(a)
                 }
-            };
+            }
 
 
             // This function handles events where the add sport button is clicked
@@ -71,16 +95,9 @@
                 renderButtons();
             });
 
+            $(document).on("click", ".sport", displayGifs);
+
             renderButtons();
-
-
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (response) {
-                console.log(response);
-
-            });
         </script>
 
 </body>
