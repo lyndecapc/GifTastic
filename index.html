@@ -31,7 +31,7 @@
             <input id="add-sport" type="submit" value="Add a Sport!">
         </form>
 
-<div id="sports-view"></div>
+        <div id="sports-view"></div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -40,7 +40,7 @@
 
             function displayGifs() {
                 var sport = $(this).attr("data-name");
-                
+
                 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" +
                     sports +
                     "&limit=10&offset=0&rating=G&lang=en";
@@ -49,10 +49,21 @@
                     url: queryURL,
                     method: "GET"
                 }).then(function (response) {
+
+                    console.log(queryURL);
                     console.log(response);
+                    JSON.stringify(response);
+                    console.log(JSON.stringify(response));
+
+                    for (var i = 0; i < response.data.length; i++)
+                   // $("#sports-view").append(JSON.stringify(response.data[i]));
 
                     
-                   var img = $("<img src=" + response.data + ">");
+
+                    //$("#sports-view").append(response.data[i]);
+
+
+                    var img = $("<img src=" + response.data[i] + ">");
 
                     $("#sports-view").append(img)
                 });
