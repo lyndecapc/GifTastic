@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GIPHY SPORTS</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Sports Search</h1>
+
+        <!-- Sports will get dumped here -->
+        <div id="buttons-view"></div>
+
+        <form id="sport-form">
+            <label for="sport-input">Add a Sport</label>
+            <input type="text" id="sport-input">
+            <br>
+
+            <!-- Button triggers new movie to be added -->
+            <input id="add-sport" type="submit" value="Add a Sport!">
+        </form>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+        
+            var sports = ["softball", "basketball", "football", "weightlifting"];
+
+            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" + sports +
+                "&limit=10&offset=0&rating=G&lang=en";
+
+
+            // Function for displaying sport data
+            function renderButtons() {
+
+                // Delete the content inside the buttons-view div prior to adding new sports
+                // (this is necessary otherwise you will have repeat buttons)
+                $("#buttons-view").empty()
+                // Loop through the array of sports, then generate buttons for each sport in the array
+                for (var i = 0; i < sports.length; i++) {
+                    $("#buttons-view").append("<button type='button'>" + sports[i] + "</button>")
+                }
+            };
+
+
+            // This function handles events where the add sport button is clicked
+            $("#add-sport").on("click", function (event) {
+                // Using a submit button instead of a regular button allows the user to hit "Enter" instead of clicking the button if desired
+                event.preventDefault();
+
+                //Code to grab the text the user types into the input field
+                var sport = $("#sport-input").val().trim();
+
+                //Code to add the new sport into the sports array
+                sports.push(sport);
+                console.log(sport);
+
+                // The renderButtons function is called, rendering the list of buttons
+                renderButtons();
+            });
+
+            renderButtons();
+
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+
+            });
+        </script>
+
+</body>
+
+</html>
