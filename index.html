@@ -54,16 +54,16 @@
                     console.log(response);
                     JSON.stringify(response);
                     console.log(JSON.stringify(response));
-
-                    for (var i = 0; i < response.data.length; i++)
-                   // $("#sports-view").append(JSON.stringify(response.data[i]));
+                    
+                    for (var i = 0; i < sports.length; i++)
+                   $("#sports-view").append(response.data[i]);
 
                     
 
                     //$("#sports-view").append(response.data[i]);
 
 
-                    var img = $("<img src=" + response.data[i] + ">");
+                    var img = $("<img src=" + response.data[i].images.original_still.url + ">");
 
                     $("#sports-view").append(img)
                 });
@@ -106,7 +106,7 @@
                 renderButtons();
             });
 
-            $(document).on("click", ".sport", displayGifs);
+            $(document).on("click", ".sport", displayGifs)
 
             renderButtons();
         </script>
