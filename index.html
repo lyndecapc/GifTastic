@@ -43,31 +43,26 @@
 
                 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" +
                     sports +
-                    "&limit=10&offset=0&rating=G&lang=en";
+                    "&limit=10";
 
                 $.ajax({
                     url: queryURL,
                     method: "GET"
-                }).then(function (response) {
+                }).then(function(response) {
 
-                    console.log(queryURL);
-                    console.log(response);
-                    JSON.stringify(response);
-                    console.log(JSON.stringify(response));
+                   console.log(response);
                     
-                    for (var i = 0; i < sports.length; i++)
-                   $("#sports-view").append(response.data[i]);
+                    for (var i = 0; i < sports.length; i++) {
+                        var results = response.data;
+        
+console.log(results[i]);
 
-                    
-
-                    //$("#sports-view").append(response.data[i]);
-
-
-                    var img = $("<img src=" + response.data[i].images.original_still.url + ">");
+                    var img = $("<img src=" + results[i].images.fixed_height.url + ">");
 
                     $("#sports-view").append(img)
-                });
-            }
+                }});
+
+                }
 
             // Function for displaying sport data
             function renderButtons() {
@@ -79,7 +74,7 @@
                 for (var i = 0; i < sports.length; i++) {
                     var a = $("<button>");
                     // Adds a class of movie to our button
-                    a.addClass("sport");
+                    a.addClass("sport-btn");
                     // Added a data-attribute
                     a.attr("data-name", sports[i]);
                     // Provided the initial button text
@@ -106,10 +101,10 @@
                 renderButtons();
             });
 
-            $(document).on("click", ".sport", displayGifs)
+            $(document).on("click", ".sport-btn", displayGifs);
 
             renderButtons();
-        </script>
+ </script>
 
 </body>
 
