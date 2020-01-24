@@ -39,32 +39,37 @@
             var sports = ["softball", "basketball", "football", "weightlifting"];
 
             function displayGifs() {
+                $("#sports-view").empty();
                 var sport = $(this).attr("data-name");
 
                 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" +
-                    sports +
+                    sport +
                     "&limit=10";
 
                 $.ajax({
                     url: queryURL,
                     method: "GET"
-                }).then(function(response) {
+                }).then(function (response) {
 
-                   console.log(response);
-                    
-                    for (var i = 0; i < sports.length; i++) {
-                        var results = response.data;
-        
-console.log(results[i]);
+                    console.log(response);
+                    var results = response.data;
 
-                    var img = $("<img src=" + results[i].images.fixed_height.url + ">");
+                    for (var i = 0; i < results.length; i++) {
+                        var sportsDiv = $("<div>");
 
-                    $("#sports-view").append(img)
-                }});
+                        var img = $("<img>");
+                        img.attr("src", results[i].images.fixed_height.url);
 
-                }
+                        sportsDiv.prepend(img)
 
-            // Function for displaying sport data
+                        $("#sports-view").append(sportsDiv);
+                    }
+                })
+            };
+
+
+
+            // Functon for displaying sport data
             function renderButtons() {
 
                 // Delete the content inside the buttons-view div prior to adding new sports
@@ -91,11 +96,11 @@ console.log(results[i]);
                 event.preventDefault();
 
                 //Code to grab the text the user types into the input field
-                var sport = $("#sport-input").val().trim();
+                var sportAdd = $("#sport-input").val().trim();
 
                 //Code to add the new sport into the sports array
-                sports.push(sport);
-                console.log(sport);
+                sports.push(sportAdd);
+                console.log(sportAdd);
 
                 // The renderButtons function is called, rendering the list of buttons
                 renderButtons();
@@ -104,7 +109,7 @@ console.log(results[i]);
             $(document).on("click", ".sport-btn", displayGifs);
 
             renderButtons();
- </script>
+        </script>
 
 </body>
 
