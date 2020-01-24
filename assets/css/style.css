@@ -1,5 +1,4 @@
 body {
-
     background: url("../images/tim-gouw-VvQSzMJ_h0U-unsplash (2).jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,8 +17,6 @@ label {
 #sports-view {
     display: flex;
     flex-wrap: wrap;
-  
-
 }
 
 #buttons-view {
