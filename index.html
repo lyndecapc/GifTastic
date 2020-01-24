@@ -14,47 +14,48 @@
     <!--Google Fonts Link-->
     <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
 
-    <style type="text/css">
-        button,
-        div,
-        form,
-        input {
-            margin: 10px;
-        }
-    </style>
+
 </head>
 
 <body>
+
+    <div class="jumbotron jumbotron-fluid"
+        style="background-color: #2a2c2a; color: orange; font-size: 50px; text-align: center;">
+
+        GIPHY SPORTS SEARCH
+    </div>
+
+
     <div class="container">
 
-        <div class="jumbotron jumbotron-fluid"
-            style="background-color: #2a2c2a; color: orange; font-size: 50px; text-align: center;">
+    <!-- Sports will get dumped here -->
+    <div id="buttons-view"></div>
+    <br>
+    <br>
 
-            GIPHY SPORTS SEARCH
-        </div>
 
+    <form id="sport-form">
+        <label for="sport-input"></label>
+        <input type="text" id="sport-input">
+        <br>
+        <br>
+        <!-- Button triggers new movie to be added -->
+        <input id="add-sport" type="submit" value="Add a Sport!">
+    </form>
 
-        <!-- Sports will get dumped here -->
-        <div id="buttons-view"></div>
+    <br>
+    <br>
 
-        <form id="sport-form">
-            <label for="sport-input"></label>
-            <input type="text" id="sport-input">
-            <br>
+    <div id="sports-view"></div>
 
-            <!-- Button triggers new movie to be added -->
-            <input id="add-sport" type="submit" value="Add a Sport!">
-        </form>
+</div>
 
-        <div id="sports-view"></div>
-    </div>
-   
     <footer class="footer">
-        <div class="container">
-          <span class="credits">Giftastic!by L Capogreco</span>
-        </div>
-  </footer>
 
+        <span class="credits">Giftastic!by L Capogreco</span>
+
+    </footer>
+  
 
     <!--JQuery Link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -62,7 +63,7 @@
     <!--Link to JS game logic-->
     <script src="./assets/javascript/app.js"></script>
 
-   
+
 
 </body>
 

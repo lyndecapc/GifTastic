@@ -17,7 +17,7 @@
          var results = response.data;
 
          for (var i = 0; i < results.length; i++) {
-             var sportsDiv = $('<div class="col-lg-3"></div>');
+             var sportsDiv = $('<div class="col-sm-6"></div>');
 
              var p = $("<p>");
 	 			p.text(results[i].rating);
@@ -30,8 +30,8 @@
              img.attr("data-state", "still")
              img.addClass("gif");
 
-            sportsDiv.append(p);
-             sportsDiv.append(img);
+            sportsDiv.prepend(p);
+             sportsDiv.prepend(img);
 
              $("#sports-view").append(sportsDiv);
          }
