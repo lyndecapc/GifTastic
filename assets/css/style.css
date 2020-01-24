@@ -1,6 +1,6 @@
 body {
-    background: url("../images/tim-gouw-VvQSzMJ_h0U-unsplash (2).jpg");
-    background-repeat: no-repeat;
+    background: url("../images/joey-kyber-8eREIa0u4lw-unsplash.jpg");
+    background-position: top;
     background-size: cover;
     font-family: 'Bangers', cursive;;
 }
@@ -10,8 +10,8 @@ label {
 }
 
 .container {
-    position: relative;
-    left: 0;
+    position: static;
+    
 }
 
 #sports-view {
@@ -47,11 +47,11 @@ label {
     right: 0;
     text-align: center;
     background-color: #2a2c2a;
-    color: orange;
+    color: rgb(168, 36, 36);
 }
 
 .gif {
-    border-color: orange;
+    border-color: rgb(168, 36, 36);
     border-width: 5px;
 }
 
