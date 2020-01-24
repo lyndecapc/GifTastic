@@ -4,6 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>GIPHY SPORTS</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Bootstrap Link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--Google Fonts Link-->
+    <link href="https://fonts.googleapis.com/css?family=Gayathri&display=swap" rel="stylesheet">
+
     <style type="text/css">
         button,
         div,
@@ -15,9 +25,14 @@
 </head>
 
 <body>
-
     <div class="container">
-        <h1>Sports Search</h1>
+
+        <div class="jumbotron jumbotron-fluid"
+            style="background-color: #2a2c2a; color: orange; font-size: 50px; text-align: center;">
+
+            GIPHY SPORTS SEARCH
+        </div>
+
 
         <!-- Sports will get dumped here -->
         <div id="buttons-view"></div>
@@ -32,84 +47,16 @@
         </form>
 
         <div id="sports-view"></div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-        <script type="text/javascript">
-            var sports = ["softball", "basketball", "football", "weightlifting"];
-
-            function displayGifs() {
-                $("#sports-view").empty();
-                var sport = $(this).attr("data-name");
-
-                var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CE9p6GaJt2Z1ezasQYs2DwZiO5vTOpu4&q=" +
-                    sport +
-                    "&limit=10";
-
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function (response) {
-
-                    console.log(response);
-                    var results = response.data;
-
-                    for (var i = 0; i < results.length; i++) {
-                        var sportsDiv = $("<div>");
-
-                        var img = $("<img>");
-                        img.attr("src", results[i].images.fixed_height.url);
-
-                        sportsDiv.prepend(img)
-
-                        $("#sports-view").append(sportsDiv);
-                    }
-                })
-            };
+    </div>
 
 
+    <!--JQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-            // Functon for displaying sport data
-            function renderButtons() {
+    <!--Link to JS game logic-->
+    <script src="./assets/javascript/app.js"></script>
 
-                // Delete the content inside the buttons-view div prior to adding new sports
-                // (this is necessary otherwise you will have repeat buttons)
-                $("#buttons-view").empty()
-                // Loop through the array of sports, then generate buttons for each sport in the array
-                for (var i = 0; i < sports.length; i++) {
-                    var a = $("<button>");
-                    // Adds a class of movie to our button
-                    a.addClass("sport-btn");
-                    // Added a data-attribute
-                    a.attr("data-name", sports[i]);
-                    // Provided the initial button text
-                    a.text(sports[i]);
-                    // Added the button to the buttons-view div
-                    $("#buttons-view").append(a)
-                }
-            }
-
-
-            // This function handles events where the add sport button is clicked
-            $("#add-sport").on("click", function (event) {
-                // Using a submit button instead of a regular button allows the user to hit "Enter" instead of clicking the button if desired
-                event.preventDefault();
-
-                //Code to grab the text the user types into the input field
-                var sportAdd = $("#sport-input").val().trim();
-
-                //Code to add the new sport into the sports array
-                sports.push(sportAdd);
-                console.log(sportAdd);
-
-                // The renderButtons function is called, rendering the list of buttons
-                renderButtons();
-            });
-
-            $(document).on("click", ".sport-btn", displayGifs);
-
-            renderButtons();
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 
