@@ -1,7 +1,7 @@
 
 
 var sports = ["softball", "basketball", "football", "weightlifting"];
-const theme = new Audio("assets/SmashMouth-AllStar.ogg");
+var theme = new Audio("assets/SmashMouth-AllStar.ogg");
 var musicPlaying = false;
 
 
