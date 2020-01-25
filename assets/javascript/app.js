@@ -1,4 +1,19 @@
- var sports = ["softball", "basketball", "football", "weightlifting"];
+
+
+var sports = ["softball", "basketball", "football", "weightlifting"];
+const theme = new Audio("assets/SmashMouth-AllStar.ogg");
+var musicPlaying = false;
+
+
+$("#title-button").on("click", function() {
+    if(musicPlaying == false){
+        theme.play();
+        musicPlaying = true;
+       }else {
+        theme.pause();
+        musicPlaying = false;
+    }
+});
 
  function displayGifs() {
      $("#sports-view").empty();
