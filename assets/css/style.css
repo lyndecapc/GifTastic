@@ -5,9 +5,6 @@ body {
     font-family: 'Bangers', cursive;;
 }
 
-label {
-    color: white;
-}
 
 .container {
     position: static;
@@ -29,7 +26,6 @@ label {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    display: inline-block;
 }
 
 
@@ -39,6 +35,8 @@ label {
 
 #add-sport {
     border-radius: 12px;
+    color: black;
+    background-color: white;
 }
 
 .footer {
@@ -50,12 +48,7 @@ label {
     color: rgb(168, 36, 36);
 }
 
-.gif {
-    border-color: rgb(168, 36, 36);
-    border-width: 5px;
-}
-
 p {
-    color: white;
+    color: rgb(168, 36, 36);
 }
 

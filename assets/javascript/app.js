@@ -20,8 +20,8 @@
              var sportsDiv = $('<div class="col-lg-5"></div>');
 
              var p = $("<p>");
-	 			p.text(results[i].rating);
-	 			 var p = $("<p>").text("Rating: " + results[i].rating);
+             p.text(results[i].rating);
+             var p = $("<p>").text("Rating: " + results[i].rating);
 
              var img = $("<img>");
              img.attr("src", results[i].images.fixed_height_still.url);
@@ -30,7 +30,7 @@
              img.attr("data-state", "still")
              img.addClass("gif");
 
-            sportsDiv.prepend(p);
+             sportsDiv.prepend(p);
              sportsDiv.prepend(img);
 
              $("#sports-view").append(sportsDiv);
