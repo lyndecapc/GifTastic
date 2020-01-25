@@ -1,6 +1,6 @@
 
 
-var sports = ["softball", "basketball", "football", "weightlifting"];
+var sports = ["softball", "baseball", "basketball", "football", "hockey", "olympic weightlifting"];
 var theme = new Audio("assets/SmashMouth-AllStar_64kb.mp3");
 var musicPlaying = false;
 
