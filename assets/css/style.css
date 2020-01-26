@@ -57,9 +57,5 @@ p {
     border-style: double;
 }
 
-.audio-container {
-    display: flex;
-    justify-content: center;
-    align-items: center 
-  }
+
 
