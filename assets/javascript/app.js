@@ -70,7 +70,6 @@ $("#title-button").on("click", function() {
 
  });
 
- //Functon for displaying sport data
 
  function renderButtons() {
 
