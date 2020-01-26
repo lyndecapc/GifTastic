@@ -5,11 +5,8 @@ body {
     font-family: 'Bangers', cursive;;
 }
 
-
 .container {
     position: static;
-    height: 60%;
-    
 }
 
 #sports-view {
