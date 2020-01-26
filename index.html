@@ -32,23 +32,23 @@
 <body>
 
     <div class="jumbotron jumbotron-fluid"
-        style="background-color: #2a2c2a; color: white; font-size: 75px; text-align: center; font-family: 'Bangers', cursive;">
-        GIPHY SPORTS SEARCH
+        style="background-color: #2a2c2a; color: white; font-size: 65px; text-align: center; font-family: 'Bangers', cursive;">
+        YOU'RE AN ALL-STAR: GIPHY SPORTS SEARCH
         <br>
-        <p> You're an All-Star! <br> 
-            Click the buttons below to search for gifs of your favorite sport. Don't see your favorite sport, add it!</p>
-            <div class="audio-container">
-                 <audio
-         controls loop preload="metadata" style=" width:200px;">
-            <source src="assets/SmashMouth-AllStar_64kb.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-            </div>
-  
-       
-	</div>
-
-
+        <p>
+            
+            Click the buttons below to search for gifs of your favorite sport. <br>
+            Don't see your favorite sport, add it! <br>
+            Click any gif to animate.
+        </p>
+        <div class="audio-container">
+            <audio controls loop preload="metadata" style=" width:200px;">
+                <source src="assets/SmashMouth-AllStar_64kb.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        
+        </div>
+    </div>
 
     <div class="container">
 
@@ -57,11 +57,10 @@
         <br>
         <br>
 
-
         <form id="sport-form">
-            
+
             <input type="text" id="sport-input">
-            
+
             <!-- Button triggers new sport to be added -->
             <input id="add-sport" type="submit" value="Add a Sport!">
         </form>
@@ -69,9 +68,6 @@
         <br>
 
         <div id="sports-view"></div>
-    
-          
-
     </div>
 
     <footer class="footer">
