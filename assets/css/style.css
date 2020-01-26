@@ -52,3 +52,9 @@ p {
     color: rgb(168, 36, 36);
 }
 
+.gif {
+    border-color: rgb(168, 36, 36);
+    border-width: 5px;
+    border-style: double;
+}
+
